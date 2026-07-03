@@ -1,0 +1,76 @@
+Activity going in:
+I built a browser game called Cricket Game solo, using HTML5 canvas, where the player swings a bat by hitting the spacebar at the right moment as a ball arcs toward a hit zone. I wrote the ball's pitch using a sine-wave trajectory so it curves unpredictably before lining up with the hit zone, and built a hit-detection check that compares the ball's position against the hit zone's center within a fixed tolerance. I added a difficulty system that increases the ball's base speed in proportion to the player's score once it passes 10, so the game gets harder the longer a streak continues. On a miss, I reset the round and logged the score into a running history panel showing the player's last 10 games. I built it in vanilla JavaScript with the HTML5 Canvas API for rendering and CSS for layout, and deployed it as a live, playable page on GitHub Pages.
+
+Running the full agent (5 AI calls: facts + 4 generator calls)...
+
+=== Facts ledger ===
+{
+  "title": "Cricket Game Development",
+  "what_was_done": "I built a browser game called Cricket Game where the player swings a bat by hitting the spacebar at the right moment as a ball arcs toward a hit zone. The game features a difficulty system and hit-detection check. It was deployed as a live, playable page on GitHub Pages.",
+  "actions": [
+    "wrote the ball's pitch using a sine-wave trajectory",
+    "built a hit-detection check",
+    "added a difficulty system",
+    "reset the round and logged the score on a miss",
+    "deployed the game on GitHub Pages"
+  ],
+  "tools_and_skills": [
+    "HTML5 canvas",
+    "vanilla JavaScript",
+    "HTML5 Canvas API",
+    "CSS"
+  ],
+  "context": null,
+  "collaboration": "solo",
+  "scale_or_duration": null,
+  "outcome": null,
+  "challenges": null,
+  "is_thin": false
+}
+
+=== Resume bullet ===
+Deployed a browser game on GitHub Pages using HTML5 canvas, vanilla JavaScript, and CSS.
+
+=== LinkedIn post ===
+I built a browser game where players swing a bat by hitting the spacebar, featuring a difficulty system and hit-detection check, and deployed it on GitHub Pages.
+
+=== Portfolio card ===
+{
+  "headline": "Cricket Game Development",
+  "description": "I built a browser game called Cricket Game where the player swings a bat by hitting the spacebar at the right moment. The game features a difficulty system and hit-detection check, built using HTML5 canvas, vanilla JavaScript, HTML5 Canvas API, and CSS. I deployed the game as a live, playable page on GitHub Pages.",
+  "tags": [
+    "HTML5 canvas",
+    "vanilla JavaScript",
+    "HTML5 Canvas API",
+    "CSS"
+  ]
+}
+
+=== Proof summary ===
+I built a browser game called Cricket Game where the player swings a bat by hitting the spacebar at the right moment as a ball arcs toward a hit zone. The game features a difficulty system and hit-detection check. I wrote the ball's pitch using a sine-wave trajectory, built a hit-detection check, added a difficulty system, reset the round and logged the score on a miss, and deployed the game on GitHub Pages.
+
+=== Skill evidence ===
+[
+  {
+    "skill": "JavaScript",
+    "evidence": "wrote the ball's pitch using a sine-wave trajectory"
+  },
+  {
+    "skill": "HTML5 Canvas API",
+    "evidence": "built a hit-detection check"
+  },
+  {
+    "skill": "HTML5 canvas",
+    "evidence": "deployed the game on GitHub Pages"
+  },
+  {
+    "skill": "CSS",
+    "evidence": "deployed the game as a live, playable page on GitHub Pages"
+  }
+]
+
+=== Recruiter description ===
+Built a browser game using HTML5 canvas, vanilla JavaScript, and CSS, featuring a difficulty system and hit-detection check, and deployed it on GitHub Pages.
+
+=== Improvement suggestion ===
+Implement a scoring system that rewards players for successful hits, building on the existing difficulty system and hit-detection check.

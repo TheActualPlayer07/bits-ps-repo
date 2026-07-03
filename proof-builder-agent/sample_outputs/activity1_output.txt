@@ -1,0 +1,78 @@
+Activity going in:
+I built the Caarya Grand Quiz solo, a full-stack web app with live, global analytics, and presented it at my Midterm Seminar to my Faculty in Charge, Swastibrata Bhattacharyya. I deployed it using static hosting on GitHub Pages. During the seminar I ran a live demo of the quiz engine's rapid-fire timer, a dynamically drawn SVG bell curve, and a score projection matrix. I designed a Bayesian Blending approach so percentile calculations stay fair when only a few people have played a quiz — the app leans on theoretical estimates when data is thin and shifts to live data as more people play. I built the backend using the Firebase REST API, and handled the frontend with browser DOM manipulation and asynchronous JavaScript.
+
+Running the full agent (5 AI calls: facts + 4 generator calls)...
+
+=== Facts ledger ===
+{
+  "title": "Caarya Grand Quiz",
+  "what_was_done": "I built the Caarya Grand Quiz, a full-stack web app, and presented it at my Midterm Seminar. The app features live, global analytics. I deployed it using static hosting on GitHub Pages.",
+  "actions": [
+    "built the Caarya Grand Quiz",
+    "deployed it using static hosting on GitHub Pages",
+    "presented it at my Midterm Seminar",
+    "ran a live demo of the quiz engine's rapid-fire timer",
+    "ran a live demo of a dynamically drawn SVG bell curve",
+    "ran a live demo of a score projection matrix",
+    "designed a Bayesian Blending approach",
+    "built the backend using the Firebase REST API",
+    "handled the frontend with browser DOM manipulation and asynchronous JavaScript"
+  ],
+  "tools_and_skills": [
+    "GitHub Pages",
+    "Firebase REST API",
+    "browser DOM manipulation",
+    "asynchronous JavaScript",
+    "SVG",
+    "Bayesian Blending approach"
+  ],
+  "context": "Midterm Seminar, presented to Faculty in Charge, Swastibrata Bhattacharyya",
+  "collaboration": "solo",
+  "scale_or_duration": null,
+  "outcome": null,
+  "challenges": null,
+  "is_thin": false
+}
+
+=== Resume bullet ===
+Built a full-stack web app with live global analytics for the Caarya Grand Quiz.
+
+=== LinkedIn post ===
+I recently presented my Caarya Grand Quiz project at Midterm Seminar, where I ran a live demo of the quiz engine I built using Firebase REST API and JavaScript.
+
+=== Portfolio card ===
+{
+  "headline": "Caarya Grand Quiz App",
+  "description": "Built a full-stack web app with live global analytics, utilizing Firebase REST API and JavaScript. The app was presented at Midterm Seminar and deployed using GitHub Pages. Key features include a Bayesian Blending approach and browser DOM manipulation.",
+  "tags": [
+    "GitHub Pages",
+    "Firebase REST API",
+    "JavaScript",
+    "Midterm Seminar"
+  ]
+}
+
+=== Proof summary ===
+At the Midterm Seminar, a full-stack web app called Caarya Grand Quiz was built and presented. The app featured live global analytics and was deployed using GitHub Pages. Key actions included designing a Bayesian Blending approach, building the backend with Firebase REST API, and handling the frontend with browser DOM manipulation and asynchronous JavaScript.
+
+=== Skill evidence ===
+[
+  {
+    "skill": "JavaScript",
+    "evidence": "Handled the frontend with browser DOM manipulation and asynchronous JavaScript"
+  },
+  {
+    "skill": "Firebase REST API",
+    "evidence": "Built the backend using Firebase REST API"
+  },
+  {
+    "skill": "Browser DOM manipulation",
+    "evidence": "Handled the frontend with browser DOM manipulation and asynchronous JavaScript"
+  }
+]
+
+=== Recruiter description ===
+Built a full-stack web app for the Caarya Grand Quiz, deploying it using GitHub Pages and presenting at the Midterm Seminar, demonstrating capability in building and deploying web applications.
+
+=== Improvement suggestion ===
+Implement automated testing for the quiz engine to further strengthen the full-stack web app.
