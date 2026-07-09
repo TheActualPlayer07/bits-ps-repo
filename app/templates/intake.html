@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Placement Panic Meter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="shell">
+  <div class="eyebrow">Placement Panic Meter</div>
+  <h1>Where do you actually stand?</h1>
+  <p class="subtext">Answer honestly — every weak spot here turns into one concrete thing to fix, not a vague warning.</p>
+
+  <form method="POST" action="{{ url_for('submit') }}">
+
+    <section class="block">
+      <h2>Time &amp; Year</h2>
+      <div class="field">
+        <label for="months_remaining">Months remaining before placement season</label>
+        <input type="number" step="0.5" min="0" name="months_remaining" id="months_remaining" required>
+      </div>
+      <div class="field">
+        <label for="year">Academic year</label>
+        <select name="year" id="year">
+          <option value="1">1st year</option>
+          <option value="2">2nd year</option>
+          <option value="3">3rd year</option>
+          <option value="4">Final year</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>DSA &amp; Problem Solving <span class="qmax">21 pts</span></h2>
+      <div class="numrow">
+        <div class="field"><label for="leetcode_easy">Easy solved</label><input type="number" min="0" name="leetcode_easy" id="leetcode_easy" value="0"></div>
+        <div class="field"><label for="leetcode_medium">Medium solved</label><input type="number" min="0" name="leetcode_medium" id="leetcode_medium" value="0"></div>
+        <div class="field"><label for="leetcode_hard">Hard solved</label><input type="number" min="0" name="leetcode_hard" id="leetcode_hard" value="0"></div>
+      </div>
+      <div class="field">
+        <label>Patterns you're comfortable with</label>
+        <div class="checkgrid">
+          {% for p in all_patterns %}
+          <label class="check-item"><input type="checkbox" name="patterns_known" value="{{ p }}"> {{ p.replace('_',' ') }}</label>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="field" style="margin-top:22px">
+        <label style="font-weight:600;color:var(--text)">Conceptual check — explain your approach in your own words</label>
+      </div>
+      {% for q in dsa_questions %}
+      <div class="field">
+        <p class="qtext">{{ q.question_text }}</p>
+        <textarea name="dsa_answer__{{ q.id }}" placeholder="Describe the technique you'd use and its time complexity..."></textarea>
+        <input type="hidden" name="dsa_question_ids" value="{{ q.id }}">
+      </div>
+      {% endfor %}
+    </section>
+
+    <section class="block">
+      <h2>CS Fundamentals <span class="qmax">17 pts</span></h2>
+      {% for topic, concepts in cs_topics.items() %}
+      <div class="field">
+        <label>{{ topic.upper() }} — concepts you can explain confidently</label>
+        <div class="checkgrid">
+          {% for c in concepts %}
+          <label class="check-item"><input type="checkbox" name="{{ topic }}_known" value="{{ c }}"> {{ c.replace('_',' ') }}</label>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+
+    <section class="block">
+      <h2>Experience &amp; Certifications <span class="qmax">12 pts</span></h2>
+      <div class="checkgrid">
+        <label class="check-item"><input type="checkbox" name="has_internship" value="1"> Completed an internship</label>
+        <label class="check-item"><input type="checkbox" name="internship_relevant" value="1"> Relevant to target role</label>
+        <label class="check-item"><input type="checkbox" name="internship_2plus_months" value="1"> 2+ months duration</label>
+        <label class="check-item"><input type="checkbox" name="has_certification" value="1"> Hold a certification</label>
+        <label class="check-item"><input type="checkbox" name="certification_relevant" value="1"> Certification is relevant</label>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Projects <span class="qmax">15 pts</span></h2>
+      <div class="checkgrid">
+        <label class="check-item"><input type="checkbox" name="project_checklist" value="clean_readme"> Clean README</label>
+        <label class="check-item"><input type="checkbox" name="project_checklist" value="public_github"> Public on GitHub</label>
+        <label class="check-item"><input type="checkbox" name="project_checklist" value="has_tests"> Has tests</label>
+        <label class="check-item"><input type="checkbox" name="project_checklist" value="deployed"> Deployed</label>
+        <label class="check-item"><input type="checkbox" name="project_checklist" value="resume_bullets"> On your resume</label>
+        <label class="check-item"><input type="checkbox" name="project_checklist" value="architecture_diagram"> Has an architecture diagram</label>
+      </div>
+      <div class="field" style="margin-top:16px">
+        <label for="project_description">Describe your strongest project — what it does, what was technically hard about it</label>
+        <textarea name="project_description" id="project_description" placeholder="What it does, how it works, what made it non-trivial..."></textarea>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Resume <span class="qmax">10 pts</span></h2>
+      <div class="checkgrid">
+        <label class="check-item"><input type="checkbox" name="resume_checklist" value="quantified_achievements"> Quantified achievements</label>
+        <label class="check-item"><input type="checkbox" name="resume_checklist" value="clean_formatting"> Clean formatting</label>
+        <label class="check-item"><input type="checkbox" name="resume_checklist" value="strong_projects_listed"> Strong projects listed</label>
+        <label class="check-item"><input type="checkbox" name="resume_checklist" value="no_fluff"> No filler/fluff</label>
+        <label class="check-item"><input type="checkbox" name="resume_checklist" value="one_page"> One page</label>
+        <label class="check-item"><input type="checkbox" name="resume_checklist" value="ats_friendly"> ATS-friendly</label>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Coding Speed <span class="qmax">10 pts</span></h2>
+      <div class="checkgrid">
+        <label class="check-item"><input type="checkbox" name="easy_under_15min" value="1"> Easy problem in under 15 min</label>
+        <label class="check-item"><input type="checkbox" name="medium_under_35min" value="1"> Medium in under 35 min</label>
+        <label class="check-item"><input type="checkbox" name="hard_under_60min" value="1"> Hard in under 60 min</label>
+        <label class="check-item"><input type="checkbox" name="debugs_independently" value="1"> Debugs independently</label>
+        <label class="check-item"><input type="checkbox" name="writes_clean_code" value="1"> Writes clean code under time pressure</label>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Explanation Clarity <span class="qmax">10 pts</span></h2>
+      <p class="qtext">Explain one project or algorithm you know well — as if to a technical interviewer. Mention your approach and any relevant complexity or tradeoffs.</p>
+      <textarea name="explanation_answer" rows="5"></textarea>
+    </section>
+
+    <section class="block">
+      <h2>Aptitude <span class="qmax">3 pts</span></h2>
+      {% for q in aptitude_questions %}
+      <div class="field">
+        <p class="qtext">{{ q.question }}</p>
+        {% for opt in q.options %}
+        <label class="check-item" style="margin-bottom:6px">
+          <input type="radio" name="aptitude__{{ q.id }}" value="{{ opt.id }}"> {{ opt.text }}
+        </label>
+        {% endfor %}
+        <input type="hidden" name="aptitude_question_ids" value="{{ q.id }}">
+      </div>
+      {% endfor %}
+    </section>
+
+    <section class="block">
+      <h2>HR / Behavioral <span class="qmax">2 pts</span></h2>
+      {% for q in hr_questions %}
+      <div class="field">
+        <p class="qtext">{{ q.question_text }}</p>
+        <textarea name="hr_answer__{{ q.id }}"></textarea>
+        <input type="hidden" name="hr_question_ids" value="{{ q.id }}">
+      </div>
+      {% endfor %}
+    </section>
+
+    <button type="submit" class="btn">Get my score</button>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Panic Score</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="shell">
+  <div class="eyebrow">Your result</div>
+  <h1>Here's where you stand</h1>
+
+  <section class="block">
+    <div class="gauge-wrap">
+      {% set pct = (result.total_score / result.total_max * 180) %}
+      {% set needle_color = '--calm' if result.total_score >= 71 else ('--warn' if result.total_score >= 41 else '--critical') %}
+      <svg width="240" height="130" viewBox="0 0 240 130">
+        <path d="M 20 120 A 100 100 0 0 1 220 120" fill="none" stroke="var(--surface-2)" stroke-width="16" stroke-linecap="round"/>
+        <path d="M 20 120 A 100 100 0 0 1 220 120" fill="none" stroke="var({{ needle_color }})" stroke-width="16" stroke-linecap="round"
+              stroke-dasharray="{{ (pct/180*314)|round(1) }} 314"/>
+      </svg>
+      <div class="gauge-score" style="color:var({{ needle_color }})">{{ result.total_score|round(1) }}<span style="font-size:20px;color:var(--text-faint)">/{{ result.total_max }}</span></div>
+      <div class="gauge-band">{{ result.band.label }}</div>
+      <div class="gauge-meaning">{{ result.band.meaning }}</div>
+      <div class="urgency-pill urgency-{{ result.urgency.level }}">⏱ {{ result.urgency.level|upper }} URGENCY — {{ result.urgency.message }}</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Breakdown by category</h2>
+    {% for key, cat in result.categories.items() %}
+    <div class="cat-row" style="display:block">
+      <div style="display:flex;justify-content:space-between">
+        <span class="cat-name">{{ key.replace('_',' ')|title }}</span>
+        <span class="cat-score">{{ cat.score }} / {{ cat.max }}</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:{{ (cat.score/cat.max*100)|round(0) }}%; background:var(--calm)"></div>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <section class="block">
+    <h2>Your priority fixes</h2>
+    <p class="qtext" style="color:var(--text-soft);margin-bottom:16px">Given your urgency level, start here — these move the needle most.</p>
+    <ul class="gap-list">
+      {% for item in plan.top_priority %}
+      <li>
+        <b>{{ item.title }}</b> <span style="color:var(--text-faint);font-family:var(--mono);font-size:11px">[{{ item.category }}]</span><br>
+        <span style="font-size:13px">{{ item.why }}</span><br>
+        <span style="font-size:13px;color:var(--calm)">→ {{ item.action }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  {% if plan.full_plan|length > plan.top_priority|length %}
+  <section class="block">
+    <h2>Full plan <span class="qmax">{{ plan.full_plan|length }} items</span></h2>
+    <ul class="gap-list">
+      {% for item in plan.full_plan %}
+      <li>
+        <b>{{ item.title }}</b> <span style="color:var(--text-faint);font-family:var(--mono);font-size:11px">[{{ item.category }}]</span><br>
+        <span style="font-size:13px">{{ item.why }}</span><br>
+        <span style="font-size:13px;color:var(--calm)">→ {{ item.action }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <a href="{{ url_for('index') }}" class="btn" style="display:block;text-align:center;text-decoration:none">Take it again</a>
+</div>
+</body>
+</html>
