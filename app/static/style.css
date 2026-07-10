@@ -1,0 +1,96 @@
+:root{
+  --bg:#12141C; --surface:#1B1E29; --surface-2:#20232F; --border:#2A2E3D;
+  --text:#EDEDF2; --text-soft:#9498AC; --text-faint:#5D6178;
+  --calm:#4FD1C5; --calm-tint:#153634;
+  --warn:#F5A623; --warn-tint:#3A2C0F;
+  --critical:#E5484D; --critical-tint:#3A1518;
+  --violet:#8C7CF0;
+  --r-sm:6px; --r-md:10px; --r-lg:16px;
+  --disp:'Space Grotesk',system-ui,sans-serif;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--text); font-family:var(--sans);
+  line-height:1.6; padding:32px 16px 80px;
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.shell{max-width:720px;margin:0 auto}
+
+.eyebrow{
+  font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--calm); margin-bottom:8px;
+}
+h1{font-family:var(--disp); font-size:28px; font-weight:600; letter-spacing:-.01em; margin-bottom:10px}
+.subtext{color:var(--text-soft); font-size:14.5px; margin-bottom:32px}
+
+section.block{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--r-lg);
+  padding:22px 24px; margin-bottom:18px;
+}
+section.block h2{
+  font-family:var(--disp); font-size:17px; font-weight:600; margin-bottom:14px;
+  display:flex; align-items:center; gap:8px;
+}
+section.block h2 .qmax{
+  font-family:var(--mono); font-size:11px; color:var(--text-faint); font-weight:400;
+  background:var(--surface-2); border:1px solid var(--border); border-radius:20px; padding:2px 9px;
+}
+.field{margin-bottom:16px}
+.field:last-child{margin-bottom:0}
+label{display:block; font-size:13.5px; color:var(--text-soft); margin-bottom:6px}
+input[type=text], input[type=number], textarea, select{
+  width:100%; background:var(--surface-2); border:1px solid var(--border); color:var(--text);
+  border-radius:var(--r-sm); padding:10px 12px; font-family:var(--sans); font-size:14px;
+}
+input:focus, textarea:focus, select:focus{outline:2px solid var(--violet); outline-offset:1px}
+textarea{min-height:90px; resize:vertical; font-family:var(--sans)}
+.checkgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:8px}
+.check-item{
+  display:flex; align-items:center; gap:8px; background:var(--surface-2); border:1px solid var(--border);
+  border-radius:var(--r-sm); padding:9px 11px; font-size:13px;
+}
+.check-item input{width:auto}
+.qtext{font-size:14px; margin-bottom:8px; color:var(--text)}
+.numrow{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+
+.btn{
+  font-family:var(--disp); font-weight:600; font-size:15px; border:none; cursor:pointer;
+  border-radius:var(--r-md); padding:14px 24px; background:var(--calm); color:#0A1F1D;
+  width:100%; margin-top:8px; transition:transform .12s;
+}
+.btn:hover{transform:translateY(-1px)}
+
+/* ---- Results / gauge ---- */
+.gauge-wrap{display:flex; flex-direction:column; align-items:center; padding:12px 0 4px}
+.gauge-score{font-family:var(--mono); font-size:44px; font-weight:500; margin-top:-38px}
+.gauge-band{font-family:var(--disp); font-size:18px; font-weight:600; margin-top:2px}
+.gauge-meaning{color:var(--text-soft); font-size:13.5px; text-align:center; max-width:420px; margin-top:6px}
+
+.urgency-pill{
+  display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:12px;
+  border-radius:20px; padding:5px 12px; margin-top:14px; border:1px solid;
+}
+.urgency-low{background:var(--calm-tint); color:var(--calm); border-color:var(--calm)}
+.urgency-medium{background:var(--warn-tint); color:var(--warn); border-color:var(--warn)}
+.urgency-high, .urgency-critical{background:var(--critical-tint); color:var(--critical); border-color:var(--critical)}
+
+.cat-row{
+  display:flex; justify-content:space-between; align-items:center; padding:11px 0;
+  border-bottom:1px solid var(--border);
+}
+.cat-row:last-child{border-bottom:none}
+.cat-name{font-size:14px}
+.cat-score{font-family:var(--mono); font-size:14px; color:var(--text-soft)}
+.bar-track{background:var(--surface-2); border-radius:20px; height:6px; margin-top:6px; overflow:hidden}
+.bar-fill{height:100%; border-radius:20px}
+
+.gap-list{list-style:none}
+.gap-list li{
+  font-size:13.5px; padding:13px 0; border-bottom:1px solid var(--border); color:var(--text-soft);
+  line-height:1.55;
+}
+.gap-list li:last-child{border-bottom:none}
+.gap-list li b{color:var(--text)}
