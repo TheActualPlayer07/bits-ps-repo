@@ -1,0 +1,77 @@
+{
+  "input_name": "Zerodha",
+  "canonical_name": "Zerodha",
+  "industry": {
+    "value": "Financial Services",
+    "source": "https://in.linkedin.com/company/zerodha"
+  },
+  "description": {
+    "value": "Zerodha is an Indian financial services company that offers brokerage-free equity investments, retail, institutional broking, currencies, and commodities trading.",
+    "source": "https://in.linkedin.com/company/zerodha"
+  },
+  "company_size": {
+    "value": "501-1,000 employees",
+    "source": "https://in.linkedin.com/company/zerodha"
+  },
+  "location": {
+    "value": "Bengaluru, India",
+    "source": "https://en.wikipedia.org/wiki/Zerodha"
+  },
+  "funding": [
+    {
+      "round_type": "Seed Round",
+      "amount": "$16.4 million",
+      "date": null,
+      "source": "https://www.trysignalbase.com/news/funding/zerodha-raises-164m-seed-round"
+    }
+  ],
+  "products": [
+    {
+      "name": "Kite",
+      "description": "Zerodha's ultra-fast flagship trading platform and app for the share market, offering streaming market data, advanced charts, an elegant UI, and tools for intraday trading, long-term investing, futures and options trading. It supports trading across NSE and BSE stock exchanges and segments, provides in-depth reports and visualizations for trades and investments.",
+      "source": "https://zerodha.com/products"
+    },
+    {
+      "name": "HTTP/JSON APIs",
+      "description": "Super simple HTTP/JSON APIs for building powerful trading platforms and experiences, allowing startups to build investment apps and showcase them to Zerodha's client base.",
+      "source": "https://zerodha.com/products"
+    },
+    {
+      "name": "Stock market lessons",
+      "description": "An easy-to-grasp collection of stock market lessons with in-depth coverage and illustrations, broken down into bite-size cards for on-the-go learning.",
+      "source": "https://zerodha.com/products"
+    }
+  ],
+  "recent_news": [
+    {
+      "headline": "Founders seize on Indian court ruling to revive criticism of Google’s ad business",
+      "date": "May 29, 2026",
+      "summary": "Zerodha founder Nithin Kamath, along with other Indian entrepreneurs, publicly backed an Indian court ruling against Google’s keyword advertising practices, arguing competitors have used Google's tools to divert traffic from established brands.",
+      "source": "https://techcrunch.com/2026/05/29/founders-seize-on-indian-court-ruling-to-revive-criticism-of-googles-ad-business/"
+    },
+    {
+      "headline": "H&M and investors back Indian innovator AltMat",
+      "date": "October 8, 2025",
+      "summary": "Indian material developer AltMat completed a new funding round with investors including H&M, investment funds Rainmatter by Zerodha and Turbostart, and Fashion for Good.",
+      "source": "https://fashionunited.uk/news/business/h-m-and-investors-back-indian-innovator-altmat/2025100884319"
+    },
+    {
+      "headline": "Elon Musk lists his three most important ingredients for AI",
+      "date": "December 2, 2025",
+      "summary": "Elon Musk discussed the potential dangers of AI with Nikhil Kamath, co-founder of retail stockbroker Zerodha, in a podcast.",
+      "source": "https://www.cnbc.com/2025/12/02/elon-musk-lists-his-three-most-important-ingredients-for-ai-.html"
+    }
+  ],
+  "relevance_to_student": "Zerodha operates in the dynamic financial services industry with a unique brokerage-free model and advanced products like Kite, making it an attractive prospect for students interested in fintech innovation. Its substantial seed funding and mid-sized employee base suggest a company with both growth potential and a structured environment, further evidenced by its focus on financial education through stock market lessons.",
+  "contact": {
+    "name": "Riya Singh",
+    "role": "Talent Acquisition Head @Zerodha",
+    "contact_method": "https://in.linkedin.com/in/riya-singh-b65795291",
+    "source": "https://in.linkedin.com/in/riya-singh-b65795291"
+  },
+  "completeness": {
+    "is_complete": false,
+    "missing_fields": [],
+    "notes": "Funding entry has a null date, missing key information for the Seed Round."
+  }
+}

@@ -1,140 +1,120 @@
-# BITS PS Repository
+# HIVE — Company Research Agent
 
-## Repository Rules
+HIVE takes a **company name** and produces a structured, sourced intelligence profile:
+industry, size, and location; funding history, products, and recent news; why the
+company is worth a student's attention; and a real contact with a realistic way to
+reach them. It's built as a five-stage pipeline, and every factual claim it makes is
+grounded in a live web search result — if a fact isn't in the search results, the field
+is left empty rather than guessed.
 
-* Do not push directly to the main branch.
-* All work must be associated with an assigned issue.
-* Contributors must work only on their designated branches.
-* All code submissions must be made through Pull Requests.
-* Only approved Pull Requests will be merged.
-* Contributors must address review comments before approval.
+## How it works
 
----
+1. **Intake** — normalizes and validates the company name.
+2. **Discovery** — searches for core facts (industry, description, size, location),
+   each with a source URL.
+3. **Enrichment** — a deeper, more targeted search for funding history, products, and
+   recent news.
+4. **Relevance + Contact** — reasons over what's already been gathered to explain why
+   the company matters to a student, and searches for a real, reachable contact.
+5. **Completeness check** — an honest two-layer verdict, not a single self-graded LLM
+   call: a deterministic pass checks every field is genuinely filled in, and a
+   separate, skeptical LLM pass flags subtler problems (vague descriptions, stale news,
+   a contact that isn't actually reachable). The two are merged in plain Python — the
+   LLM never gets to declare its own output complete.
 
-## Contribution Process
+**The core technique, every stage that makes a factual claim:** search the web, hand
+the results to the LLM, and instruct it to answer only from those results, returning
+structured (schema-validated) data. The model structures what was retrieved — it never
+invents a fact that isn't grounded in a real source.
 
-Issue Created
-→ Issue Assigned
-→ Branch Created
-→ Development
-→ Testing
-→ Commit Changes
-→ Push Branch
-→ Create Pull Request
-→ Review
-→ Approval
-→ Merge
+## Tech stack
 
----
+- **Python**
+- **Google Gemini API** — structured/JSON output mode
+- **Tavily** — a web search API built for AI agents
+- **Pydantic** — schema definition and validation
+- **Streamlit** — the UI
 
-## Branch Naming Convention
+## Setup
 
-### Feature Branches
+1. Clone the repo and `cd` into it.
+2. Create and activate a virtual environment:
+   ```
+   python -m venv .venv
 
-```text
-feature/project-name
+   # Windows
+   .venv\Scripts\activate
+
+   # macOS/Linux
+   source .venv/bin/activate
+   ```
+3. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+4. Copy `.env.example` to `.env` and fill in your own API keys:
+   ```
+   cp .env.example .env
+   ```
+
+   | Variable | Where to get it |
+   |---|---|
+   | `TAVILY_API_KEY` | [tavily.com](https://tavily.com) — free tier available |
+   | `GEMINI_API_KEY` | [aistudio.google.com](https://aistudio.google.com) — free tier available |
+
+## Running it
+
+**Streamlit UI** (recommended):
+```
+streamlit run app.py
+```
+Then open the URL it prints (usually `http://localhost:8501`) and enter a company name.
+
+**Command line**, for a raw JSON profile:
+```
+cd src
+python -m hive.pipeline "Company Name"
 ```
 
-Examples:
+## Project structure
 
-```text
-feature/ai-roast-my-code
-feature/startup-validator
-feature/debate-bot
-feature/placement-panic-meter
+```
+HIVE/
+├── app.py                    # Streamlit UI entry point
+├── requirements.txt
+├── .env.example               # template listing the required API keys
+└── src/hive/
+    ├── schema.py              # CompanyProfile and every sub-model (Pydantic)
+    ├── clients.py             # shared Tavily/Gemini client + result-formatting helpers
+    ├── pipeline.py            # run_pipeline() orchestrator
+    └── stages/
+        ├── intake.py
+        ├── discovery.py
+        ├── enrichment.py
+        ├── relevance_contact.py
+        └── completeness.py
 ```
 
-### Bug Fix Branches
+## Sample profiles
 
-```text
-bug/issue-name
-```
+Three fully researched example profiles (real pipeline output, unedited):
 
-Examples:
+- [Notion](samples/notion.json) — SaaS / productivity software
+- [Zerodha](samples/zerodha.json) — Indian fintech / stock broking
+- [Stripe](samples/stripe.json) — global payments infrastructure
 
-```text
-bug/login-error
-bug/api-timeout
-```
+## Error handling
 
-### Enhancement Branches
+A failure in any single stage (a rate limit, a network error) is caught and doesn't
+crash the run — the affected fields are simply left empty, and the completeness check
+honestly flags them as missing, along with a note on what failed and why. Invalid input
+(an empty or clearly-not-a-company-name string) fails fast instead, since retrying the
+same input wouldn't help.
 
-```text
-enhancement/improvement-name
-```
+## Live demo
 
-Examples:
+**[hive-research-agent.streamlit.app](https://hive-research-agent.streamlit.app/)**
 
-```text
-enhancement/ui-improvements
-enhancement/performance-update
-```
+## Walkthrough video
 
----
-
-## Commit Naming Convention
-
-### Feature
-
-```text
-FEAT: Description
-```
-
-Example:
-
-```text
-FEAT: Added repository analysis module
-```
-
-### Bug Fix
-
-```text
-BUG: Description
-```
-
-Example:
-
-```text
-BUG: Fixed login validation issue
-```
-
-### Enhancement
-
-```text
-ENH: Description
-```
-
-Example:
-
-```text
-ENH: Improved dashboard performance
-```
-
-### Documentation
-
-```text
-DOC: Description
-```
-
-Example:
-
-```text
-DOC: Updated repository guidelines
-```
-
----
-
-## Pull Request Requirements
-
-Every Pull Request should contain:
-
-* Related issue number
-* Summary of changes
-* Testing performed
-* Screenshots (if applicable)
-
-
----
-
-## Projects
-
+**(coming soon)**
