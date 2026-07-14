@@ -1,0 +1,17 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables / secrets
+.env
+
+# Editor / OS cruft
+.vscode/
+.DS_Store
+
+# Personal learning/build notes -- not part of the public deliverable
+CLAUDE.md
+NOTES.md

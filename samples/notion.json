@@ -1,0 +1,104 @@
+{
+  "input_name": "Notion",
+  "canonical_name": "Notion",
+  "industry": {
+    "value": "Software Development",
+    "source": "https://www.linkedin.com/company/notionhq"
+  },
+  "description": {
+    "value": "Notion blends everyday work tools into one, offering an all-in-one customizable workspace for product roadmaps, company wikis, and meeting notes.",
+    "source": "https://www.linkedin.com/company/notionhq"
+  },
+  "company_size": {
+    "value": "501-1,000 employees",
+    "source": "https://www.linkedin.com/company/notionhq"
+  },
+  "location": {
+    "value": "San Francisco, CA, United States",
+    "source": "https://builtin.com/company/notion/offices"
+  },
+  "funding": [
+    {
+      "round_type": "Series D",
+      "amount": "$275M",
+      "date": "Sep 28, 2021",
+      "source": "https://tracxn.com/d/companies/notion/__LQ8wyN9zLT-OwulhqbMYvw0Ayznneiugbu_OaKuGD4U"
+    },
+    {
+      "round_type": null,
+      "amount": null,
+      "date": "2013",
+      "source": "https://tracxn.com/d/companies/notion/__LQ8wyN9zLT-OwulhqbMYvw0Ayznneiugbu_OaKuGD4U"
+    },
+    {
+      "round_type": null,
+      "amount": "$50 million",
+      "date": "January 2020",
+      "source": "https://en.wikipedia.org/wiki/Notion_(productivity_software)"
+    }
+  ],
+  "products": [
+    {
+      "name": "Notion (productivity software)",
+      "description": "A productivity and note-taking application that serves as a workspace for notetaking, knowledge management, data organization, project and task tracking, and a digital workspace to streamline and manage notes, tasks, projects, records, and calendar.",
+      "source": "https://en.wikipedia.org/wiki/Notion_(productivity_software)"
+    },
+    {
+      "name": "Notion AI chatbot service",
+      "description": "An AI chatbot service that can be used on the workspace, including core features like Notion Agent, AI Meeting Notes, and Enterprise Search.",
+      "source": "https://en.wikipedia.org/wiki/Notion_(productivity_software)"
+    },
+    {
+      "name": "Notion Agent",
+      "description": "An AI agent that completes complex, multi-step tasks, chats to take on entire tasks, using context from the workspace and connected apps to create and edit pages and databases.",
+      "source": "https://www.notion.com/product/ai"
+    },
+    {
+      "name": "Enterprise Search",
+      "description": "A feature within Notion AI for searching across the Notion workspace and connected apps like Slack and Google Drive to find answers without jumping between tools.",
+      "source": "https://www.notion.com/product/ai"
+    },
+    {
+      "name": "Notion AI Connectors",
+      "description": "Connectors within Notion AI that allow searching across connected apps like Slack and Google Drive.",
+      "source": "https://www.notion.com/product/ai"
+    },
+    {
+      "name": "AI Meeting Notes",
+      "description": "A core feature included with Notion AI.",
+      "source": "https://www.notion.com/product/ai"
+    }
+  ],
+  "recent_news": [
+    {
+      "headline": "Notion shutting down its AI-powered email client, including Mac and iOS apps.",
+      "date": "June 25, 2026",
+      "summary": "Notion announced it is shutting down the Notion Mail inbox service on September 22. Notion Mail was an AI-powered email client launched in April 2025.",
+      "source": "https://9to5mac.com/2026/06/25/notion-shutting-down-its-ai-powered-email-client-including-mac-and-ios-apps/"
+    },
+    {
+      "headline": "Notion killing Skiff-influenced email app since most users use AI agents instead.",
+      "date": "June 2026",
+      "summary": "Notion is shutting down Notion Mail, which had integrated Skiff's email service, on September 22. The company stated that most Notion users rely on AI agents to handle their electronic correspondence instead.",
+      "source": "https://arstechnica.com/gadgets/2026/06/notion-killing-skiff-influenced-email-app-since-most-users-use-ai-agents-instead/"
+    },
+    {
+      "headline": "Notion transforms its workspace into a hub for AI agents.",
+      "date": null,
+      "summary": "Notion introduced a new developer platform and 'Workers' feature, expanding AI agent capabilities to connect with external systems and create automated multi-step workflows. The 'Custom Agents' feature was launched in February, and the Workers service is offered for free until August for developers.",
+      "source": "https://zamin.uz/en/technology/200851-notion-transforms-its-workspace-into-a-hub-for-ai-agents.html"
+    }
+  ],
+  "relevance_to_student": "Notion is a well-funded software development company making significant strides in AI integration, transforming its core productivity platform into an \"AI agent hub.\" This strategic pivot, alongside its status as a mid-sized growth company, offers exciting opportunities for students interested in cutting-edge AI development, innovative software solutions, and impactful product roles.",
+  "contact": {
+    "name": "Shivani M Patel",
+    "role": "University Recruiting @ Notion",
+    "contact_method": "https://www.linkedin.com/in/shivanimpatel97",
+    "source": "https://www.linkedin.com/in/shivanimpatel97"
+  },
+  "completeness": {
+    "is_complete": false,
+    "missing_fields": [],
+    "notes": "One funding entry is missing the 'round_type' despite having an amount and date.; The description for 'AI Meeting Notes' is vague and does not explain its function."
+  }
+}
