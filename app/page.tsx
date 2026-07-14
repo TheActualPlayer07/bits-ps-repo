@@ -50,7 +50,23 @@ export default function HomePage() {
           model: selectedModel // ✓ Updated line
         }),
       });
-      const data = await res.json();
+
+      // Read as text first and parse manually: if the request timed out at
+      // the platform level (rather than inside our own API route), the
+      // response body is an HTML/plain-text error page, not JSON — and
+      // res.json() throws a cryptic "unexpected character" error on that.
+      // This gives a clear, actionable message instead.
+      const rawBody = await res.text();
+      let data: { error?: string; research?: unknown; positioning?: unknown; page?: unknown } = {};
+      try {
+        data = rawBody ? JSON.parse(rawBody) : {};
+      } catch {
+        throw new Error(
+          res.status === 504 || !res.ok
+            ? "The server took too long to respond and the request timed out. Try again, or switch to a faster model like Gemini 3.1 Flash Lite."
+            : "The server returned an unexpected response. Please try again."
+        );
+      }
 
       if (!res.ok) {
         throw new Error(data?.error || "Something went wrong generating this page.");

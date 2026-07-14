@@ -28,10 +28,11 @@ async function runPipeline(url: string, model: string): Promise<PipelineResult> 
 
 /**
  * True if an error looks like a transient quota/overload condition (HTTP
- * 429 "RESOURCE_EXHAUSTED" or 503 "UNAVAILABLE") worth retrying on a
- * different model, rather than a real failure like a bad URL, a malformed
- * schema, or a missing API key — those should still surface as errors
- * instead of silently retrying.
+ * 429 "RESOURCE_EXHAUSTED" or 503 "UNAVAILABLE") — or a single Gemini call
+ * simply taking too long (see GEMINI_CALL_TIMEOUT_MS in lib/gemini.ts) —
+ * worth retrying on a different model, rather than a real failure like a
+ * bad URL, a malformed schema, or a missing API key — those should still
+ * surface as errors instead of silently retrying.
  */
 function isRetryableQuotaError(err: unknown): boolean {
   const message = err instanceof Error ? err.message : String(err);
@@ -39,7 +40,8 @@ function isRetryableQuotaError(err: unknown): boolean {
     message.includes("429") ||
     message.includes("RESOURCE_EXHAUSTED") ||
     message.includes("503") ||
-    message.includes("UNAVAILABLE")
+    message.includes("UNAVAILABLE") ||
+    message.includes("timed out")
   );
 }
 
