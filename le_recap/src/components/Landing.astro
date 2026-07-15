@@ -1,0 +1,285 @@
+---
+import rect from '../assets/Rectangle22.svg';
+import play from '../assets/nonoiseplay.svg';
+import background from '../assets/table cats.gif';
+import { PaperDeck } from './PaperDeck';
+import Card from './Card'
+
+// Example mock data structure to pass into <PaperDeck cards={mockWrappedData} client:load />
+const mockWrappedData = [
+  {
+    id: 'intro',
+    content: [
+      'wefwfe RECAP thing 001110110101',
+      'next line',
+      'woah',
+      'ok fire',
+      'this works??!?!?!!!!',
+      'aaaaaaaaaaa'
+    ]
+  },
+  {
+    id: 'stats-hours',
+    content: [
+      'TERM ANALYSIS // SUITE 82',
+      '------------------------',
+      'Total Focus Time: 142 hrs',
+      'Peak Productivity: 2 AM',
+      'status: unlocked demon mode',
+    ]
+  },
+  {
+    id: 'stats-skills',
+    content: [
+      'SKILLS ACQUIRED:',
+      '-> TypeScript optimization',
+      '-> Microprocessor logic',
+      '-> DB Normalization (BCNF)',
+      '',
+      'Final Grade: CRUSHED IT'
+    ]
+  }
+];
+---
+
+<div id="container">
+    
+	<div class="screen-wipe"></div>
+
+	<main id="landing-screen">
+		<img id="background" src={background.src} alt="" fetchpriority="high" />
+        <div class="rect" style={`--bg-url: url(${rect.src})`}>
+            <h1 class="title">ReadWrap</h1>
+            <button class="play-btn" id="start-button" aria-label="Play Game">
+				<img class="play" src={play.src} alt=""/>
+			</button>
+        </div>
+		<a class="credits" href="https://mejwh.tumblr.com">Background Credit: MEJWH</a>
+    </main>
+
+	<section id="game-screen">
+        <PaperDeck cards={mockWrappedData} client:load />
+    </section>
+</div>
+
+<style>
+
+	/* Reset screens to be stationary but layered */
+    #landing-screen, #game-screen {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #landing-screen {
+        padding-top: 2.5cqw; 
+        z-index: 2; /* Sits on top initially */
+        transition: opacity 0.4s ease; /* Fade out gracefully as the wipe covers it */
+    }
+
+    #game-screen {
+        background: hsl(180, 14, 31); 
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0; /* Hidden initially */
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* 
+       The Wipe Overlay:
+       Starts fixed to the left with 0 width.
+    */
+    .screen-wipe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #09BC98; /* Your signature green */
+        z-index: 10; /* Sits above everything during transition */
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    /* --- Transition States --- */
+
+    /* 1. The Wipe stretches to cover the screen */
+    .swipe-active .screen-wipe {
+        transform: scaleX(1);
+    }
+
+    /* 2. Hide the landing screen once covered */
+    .wipe-complete #landing-screen {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* 3. Keep the game screen permanently active and visible */
+    .wipe-complete #game-screen {
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 3; /* Placed above landing screen */
+    }
+
+    /* Reset margins to prevent unexpected shifting */
+    :global(body) {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    #container {
+        container-type: size; 
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Forces the pixel art GIF to fill the screen cleanly without stretching */
+        z-index: -1;
+    }
+
+    main {
+		margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-top: 2.5cqw; /* Pushes the entire banner slightly away from the viewport edges like the mockup */
+    }
+
+	.credits {
+		position: fixed;
+		bottom: 10px;
+		right: 10px;
+		font-family: 'Press Start 2P', cursive;
+		color: rgba(212, 198, 70, 0.514);
+		font-size: 0.6vw;
+	}
+
+    .rect {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        background-image: url('../assets/Rectangle22.svg'); 
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+		margin-left: 0px;
+        
+        /* Added balanced internal padding to center the content inside the blue asset */
+        padding: 4cqw 8cqw 4cqw 6cqw; 
+        gap: 3cqw;
+        width: fit-content;
+        
+        /* Drop shadow effect from the mockup */
+        filter: drop-shadow(0px 0.8cqw 0px rgba(0, 0, 0, 0.15));
+
+		animation: slideIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+		opacity: 0;
+		will-change: transform, opacity; 
+    }
+
+    .title {
+        margin: 0;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 4.5cqw; 
+        line-height: 1;
+        color: white;
+        white-space: nowrap;
+        text-shadow:
+            -0.08em -0.08em 0 #09BC98,  0.08em -0.08em 0 #09BC98,
+            -0.08em  0.08em 0 #09BC98,  0.08em  0.08em 0 #09BC98,
+             0.15em  0.18em 0 #F2D857;
+
+		animation: slideIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+		opacity: 0;
+		will-change: transform, opacity; 
+    }
+
+	.play-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        outline: none;
+        display: inline-flex;
+        align-items: center;
+        flex-shrink: 0;
+
+        /* Keep your original entrance animation here */
+        animation: slideIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+        opacity: 0;
+        will-change: transform, opacity; 
+    }
+
+    .play {
+        height: 5cqw; 
+        width: auto;
+        /* Kept your visual alignment correction */
+        transform: translateY(0.2cqw); 
+        
+        /* Smooth zoom transition */
+        transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+        /* Keeps pixel art sharp when scaling */
+        image-rendering: pixelated; 
+    }
+
+    /* 3. The Hover Effect: Zoom in slightly when hovering over the button */
+    .play-btn:hover .play {
+        transform: translateY(0.2cqw) scale(1.15);
+    }
+
+    /* 4. Optional: A nice tactile press effect when clicked */
+    .play-btn:active .play {
+        transform: translateY(0.2cqw) scale(0.95);
+    }
+
+	@keyframes slideIn {
+		from {
+		transform: translateX(-100%); /* Start completely off-screen to the left */
+		opacity: 0;                   /* Start invisible */
+		}
+		to {
+		transform: translateX(0);     /* End at its natural position */
+		opacity: 1;                   /* Fully visible */
+		}
+	}
+
+</style>
+
+<script>
+    const startButton = document.getElementById('start-button');
+    const container = document.getElementById('container');
+    const wipe = document.querySelector('.screen-wipe') as HTMLElement | null;
+
+    startButton?.addEventListener('click', () => {
+        if (!container || !wipe) return;
+
+        // Reset origin to left before starting
+        wipe.style.transformOrigin = 'left';
+        
+        // 1. Trigger the wipe cover
+        container.classList.add('swipe-active');
+
+        // 2. Exactly halfway (when screen is 100% green covered)
+        setTimeout(() => {
+            container.classList.add('wipe-complete'); // Lock the new screen visibility in
+            wipe.style.transformOrigin = 'right';      // Change origin to right
+            container.classList.remove('swipe-active'); // Retract the green wipe to the right
+        }, 600); // Matches the 0.6s transition duration
+    });
+</script>
