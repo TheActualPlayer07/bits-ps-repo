@@ -2,6 +2,44 @@
 import rect from '../assets/Rectangle22.svg';
 import play from '../assets/nonoiseplay.svg';
 import background from '../assets/table cats.gif';
+import { PaperDeck } from './PaperDeck';
+import Card from './Card'
+
+// Example mock data structure to pass into <PaperDeck cards={mockWrappedData} client:load />
+const mockWrappedData = [
+  {
+    id: 'intro',
+    content: [
+      'wefwfe RECAP thing 001110110101',
+      'next line',
+      'woah',
+      'ok fire',
+      'this works??!?!?!!!!',
+      'aaaaaaaaaaa'
+    ]
+  },
+  {
+    id: 'stats-hours',
+    content: [
+      'TERM ANALYSIS // SUITE 82',
+      '------------------------',
+      'Total Focus Time: 142 hrs',
+      'Peak Productivity: 2 AM',
+      'status: unlocked demon mode',
+    ]
+  },
+  {
+    id: 'stats-skills',
+    content: [
+      'SKILLS ACQUIRED:',
+      '-> TypeScript optimization',
+      '-> Microprocessor logic',
+      '-> DB Normalization (BCNF)',
+      '',
+      'Final Grade: CRUSHED IT'
+    ]
+  }
+];
 ---
 
 <div id="container">
@@ -20,8 +58,7 @@ import background from '../assets/table cats.gif';
     </main>
 
 	<section id="game-screen">
-        <h2>Welcome to the New Area!</h2>
-        <!-- Your new app/game content goes here -->
+        <PaperDeck cards={mockWrappedData} client:load />
     </section>
 </div>
 
