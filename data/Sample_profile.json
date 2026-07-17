@@ -1,0 +1,129 @@
+{
+  "company_name": "Oakridge Health Networks",
+
+  "website": "https://oakridgehealth.example",
+
+  "industry": "Healthcare Provider",
+
+  "company_size": "Enterprise (4,800 employees)",
+
+  "headquarters": "Chicago, Illinois",
+
+  "founded_year": 1994,
+
+  "business_summary": "Oakridge Health Networks operates twelve regional hospitals, forty-three outpatient clinics, and six diagnostic laboratories across the Midwest. The organization specializes in oncology, cardiology, trauma care, and rural healthcare services. The company has aggressively expanded through acquisitions over the past six years, integrating multiple hospital systems into one organization.",
+
+  "products_services": [
+    "Primary Care",
+    "Emergency Medicine",
+    "Cancer Treatment",
+    "Diagnostic Imaging",
+    "Telemedicine",
+    "Patient Portal"
+  ],
+
+  "tech_stack": [
+    "IBM AS400",
+    "Windows Server 2012",
+    "Microsoft SQL Server 2016",
+    "Citrix",
+    "Cisco Call Manager",
+    "VMware ESXi",
+    "Active Directory",
+    "Fax Infrastructure",
+    "PowerShell",
+    "Custom .NET Applications"
+  ],
+
+  "recent_news": [
+
+    "Received a $150,000 HIPAA fine after investigators found patient information transmitted over unsecured fax lines.",
+
+    "CEO announced a three-year digital transformation initiative focused on interoperability and patient experience.",
+
+    "Opened two new specialty hospitals following the acquisition of MidWest Care Group.",
+
+    "Hired a new Chief Digital Officer from a Fortune 100 healthcare company.",
+
+    "Expanded telemedicine services into four additional states."
+  ],
+
+  "hiring_roles": [
+
+    "Senior Data Engineer",
+
+    "Cloud Infrastructure Architect",
+
+    "Azure Platform Engineer",
+
+    "Cybersecurity Analyst",
+
+    "Integration Engineer",
+
+    "Solutions Architect"
+  ],
+
+  "competitors": [
+
+    "Mayo Clinic",
+
+    "Cleveland Clinic",
+
+    "Northwestern Medicine"
+  ],
+
+  "recent_events": [
+
+    "Migrating selected workloads to Microsoft Azure.",
+
+    "Implementing Epic EHR integration across newly acquired hospitals.",
+
+    "Migrating from fax referrals toward digital physician workflows.",
+
+    "Beginning enterprise identity modernization."
+  ],
+
+  "notable_customers": [],
+
+  "awards": [
+
+    "Top Regional Hospital Network 2024"
+  ],
+
+  "metadata": {
+
+    "annual_revenue": "$3.2 Billion",
+
+    "hospital_count": 12,
+
+    "clinic_count": 43,
+
+    "bed_capacity": 3700,
+
+    "acquisitions_last_5_years": 5,
+
+    "ehr_platform": "Epic",
+
+    "legacy_ehr_platforms": [
+
+      "Cerner",
+
+      "Meditech",
+
+      "Custom AS400"
+
+    ],
+
+    "estimated_it_budget": "$180 Million",
+
+    "known_incidents": [
+
+      "HIPAA Fine",
+
+      "Major SQL outage affecting appointment scheduling",
+
+      "Patient portal downtime during migration"
+
+    ]
+  }
+}
