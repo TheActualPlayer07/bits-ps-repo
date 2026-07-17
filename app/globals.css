@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-ink-950 text-manuscript antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid #b23a2e;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .manuscript-card {
+    @apply relative bg-manuscript text-ink-950 rounded-sm border-l-[3px] border-redline shadow-[0_1px_2px_rgba(0,0,0,0.4),0_24px_60px_-24px_rgba(0,0,0,0.6)];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
