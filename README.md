@@ -1,140 +1,77 @@
-# BITS PS Repository
+# AI Job Discovery Agent
 
-## Repository Rules
+![Job Discovery Agent](https://img.shields.io/badge/Status-Complete-success) ![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![Streamlit](https://img.shields.io/badge/UI-Streamlit-red)
 
-* Do not push directly to the main branch.
-* All work must be associated with an assigned issue.
-* Contributors must work only on their designated branches.
-* All code submissions must be made through Pull Requests.
-* Only approved Pull Requests will be merged.
-* Contributors must address review comments before approval.
+The **AI Job Discovery Agent** is an intelligent, automated pipeline designed to match candidates with their ideal remote jobs. By leveraging web scraping, relevance scoring algorithms, and OpenAI-powered insights, this agent transforms a simple list of skills into a highly curated, deeply analyzed dashboard of job opportunities.
 
 ---
 
-## Contribution Process
+## 🚀 Core Features
 
-Issue Created
-→ Issue Assigned
-→ Branch Created
-→ Development
-→ Testing
-→ Commit Changes
-→ Push Branch
-→ Create Pull Request
-→ Review
-→ Approval
-→ Merge
+1. **Live Web Scraping Engine (`src/scraper.py`)**
+   - Automatically fetches real, live programming job postings from We Work Remotely.
+   - Extracts essential metadata including Job Title, Company, Location, and Application Links.
 
----
+2. **Relevance Scoring (`src/scoring.py`)**
+   - Intelligently parses user skills and calculates a **Relevance Score (0-100)** for each scraped job.
+   - Exact skill matches and title matches are weighted heavier than general descriptions.
+   - Filters out irrelevant roles and guarantees the best matches are sorted to the top.
 
-## Branch Naming Convention
+3. **AI Job Insights (`src/ai_insights.py`)**
+   - Integrates with the OpenAI API (`gpt-3.5-turbo`) to generate deep, personalized insights for each matched job.
+   - Evaluates **Role Fit**, identifies **Skills to Gain**, assesses **Work Culture**, and projects a potential **Career Path**.
 
-### Feature Branches
-
-```text
-feature/project-name
-```
-
-Examples:
-
-```text
-feature/ai-roast-my-code
-feature/startup-validator
-feature/debate-bot
-feature/placement-panic-meter
-```
-
-### Bug Fix Branches
-
-```text
-bug/issue-name
-```
-
-Examples:
-
-```text
-bug/login-error
-bug/api-timeout
-```
-
-### Enhancement Branches
-
-```text
-enhancement/improvement-name
-```
-
-Examples:
-
-```text
-enhancement/ui-improvements
-enhancement/performance-update
-```
+4. **Interactive Dashboard (`app.py`)**
+   - A clean, modern Streamlit interface.
+   - Features structured metric layouts, formatted markdown tags for required skills, and color-coded alert boxes for AI insights.
 
 ---
 
-## Commit Naming Convention
+## ⚙️ Tech Stack
 
-### Feature
-
-```text
-FEAT: Description
-```
-
-Example:
-
-```text
-FEAT: Added repository analysis module
-```
-
-### Bug Fix
-
-```text
-BUG: Description
-```
-
-Example:
-
-```text
-BUG: Fixed login validation issue
-```
-
-### Enhancement
-
-```text
-ENH: Description
-```
-
-Example:
-
-```text
-ENH: Improved dashboard performance
-```
-
-### Documentation
-
-```text
-DOC: Description
-```
-
-Example:
-
-```text
-DOC: Updated repository guidelines
-```
+- **Frontend / UI:** [Streamlit](https://streamlit.io/)
+- **Data Manipulation:** Pandas
+- **Web Scraping:** Requests, BeautifulSoup4
+- **AI / LLM:** OpenAI API
+- **Environment Management:** python-dotenv
 
 ---
 
-## Pull Request Requirements
+## 🛠️ Installation & Setup
 
-Every Pull Request should contain:
+1. **Clone the repository**
+   ```bash
+   git clone <repository_url>
+   cd Job-Discovery-Agent
+   ```
 
-* Related issue number
-* Summary of changes
-* Testing performed
-* Screenshots (if applicable)
+2. **Install dependencies**
+   Ensure you have Python 3.8+ installed, then run:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
+3. **Environment Variables**
+   Create a `.env` file in the root directory (optional, you can also paste your API key directly in the UI):
+   ```env
+   OPENAI_API_KEY=your_openai_api_key_here
+   ```
+
+4. **Run the Application**
+   ```bash
+   streamlit run app.py
+   ```
 
 ---
 
-## Projects
+## 📖 Usage
 
+1. Launch the app and open your browser to `http://localhost:8501`.
+2. Input your skills directly into the text area (e.g., "Python, Machine Learning, Data Science").
+3. (Optional) Paste your OpenAI API key in the sidebar to unlock AI Insights.
+4. Click **"Discover Jobs"**.
+5. The agent will scrape live jobs, score them against your skills, generate AI insights, and present you with a beautifully formatted dashboard!
+
+---
+
+*This project was built over 6 phases, evolving from a mock-data pipeline into a fully automated, AI-driven job scraping engine.*
