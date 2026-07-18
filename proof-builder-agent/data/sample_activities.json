@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Weekend hackathon — accessibility checker extension",
+    "activity_text": "At a 24-hour campus hackathon, I built a Chrome extension called ContrastCheck with two teammates. I focused on the scanning logic: it walks the DOM of any open webpage, pulls the computed foreground and background colors for every text element, and runs the WCAG contrast ratio formula to flag anything below the AA threshold. I wrote it in vanilla JavaScript using the Chrome extensions API (content scripts + a popup UI). We tested it on 10 real sites, including our university's own course registration portal, and found accessibility issues on 7 of them. We demoed it to the judges and placed in the top 5 of 22 teams. One of the other hackers asked to keep using it after the event."
+  },
+  {
+    "title": "Research methods coursework — survey data analysis",
+    "activity_text": "For my Research Methods course, I designed and ran a short survey on study habits among 85 students in my dorm, then cleaned and analyzed the responses in Python using pandas and matplotlib. I had to handle a fair number of incomplete responses, so I wrote a small script to filter out submissions missing more than two key fields rather than just dropping anything imperfect. I found a moderate correlation between reported sleep hours and self-rated focus during exam week, which I wrote up in a 6-page report with three charts. I worked on this solo. My professor mentioned in feedback that the cleaning approach was more rigorous than most of the class submissions."
+  },
+  {
+    "title": "Coding club — onboarding workshop",
+    "activity_text": "I run weekly beginner workshops for our university's coding club. Last month I put together and led a 90-minute session introducing Git and GitHub to about 15 first-year students who had never used version control before. I wrote the slides and a hands-on exercise where everyone forked a small starter repo, made a change, and opened a pull request. A few people got stuck on merge conflicts, so I improvised a short whiteboard explanation partway through. Two attendees told me afterward it was the first time Git actually made sense to them. I haven't measured this formally beyond that, and I don't have attendance numbers from before vs. after."
+  }
+]

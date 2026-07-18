@@ -1,0 +1,78 @@
+Activity going in:
+I designed an analog IC project in Cadence Virtuoso on the gpdk180 (180nm) PDK solo, taking a MOSFET from device characterization through amplifier and filter design. I first characterized an NMOS by sweeping Id vs Vgs to extract the threshold voltage (~0.5V) and the channel-length-modulation parameter lambda, comparing a 180nm device (~0.21) against a 540nm one (~0.055). I then designed a resistive-load common-source amplifier to a hard spec (180uW, Class A, Vov 0.2V), working the bias math and iteratively sweeping transistor width until Vout hit 1V (W = 4.9u, L = 400n), and confirmed the Q-point with a load-line plot. I extracted the small-signal gain three ways and reconciled them: by hand (~5.95), from the VTC slope (-5.59, converging to -5.945 at a 1mV step), and from an AC transient measurement. I drove a 300mV input to force clipping, ran a PSS spectral analysis over 10 harmonics, and plotted THD vs Vin. I then built four more single-stage topologies (diode-load, triode-load, current-source-load, active-load, plus source degeneration), deriving and simulating each gain expression, and finished with RC low-pass, high-pass, and band-pass filters, using AC analysis to verify the -3dB cutoff at 159Hz and the -20dB/decade single-pole roll-off.
+
+Running the full agent (5 AI calls: facts + 4 generator calls)...
+
+=== Facts ledger ===
+{
+  "title": "Analog IC Project",
+  "what_was_done": "Designed an analog IC project using Cadence Virtuoso. The project involved characterizing a MOSFET, designing amplifiers and filters. The design process included simulating and analyzing various circuit topologies.",
+  "actions": [
+    "Characterized an NMOS by sweeping Id vs Vgs",
+    "Designed a resistive-load common-source amplifier",
+    "Worked the bias math and iteratively swept transistor width",
+    "Confirmed the Q-point with a load-line plot",
+    "Extracted the small-signal gain",
+    "Ran a PSS spectral analysis",
+    "Plotted THD vs Vin",
+    "Built single-stage topologies",
+    "Derived and simulated each gain expression",
+    "Designed RC low-pass, high-pass, and band-pass filters",
+    "Verified the -3dB cutoff using AC analysis"
+  ],
+  "tools_and_skills": [
+    "Cadence Virtuoso",
+    "gpdk180 PDK"
+  ],
+  "context": null,
+  "collaboration": "solo",
+  "scale_or_duration": null,
+  "outcome": null,
+  "challenges": null,
+  "is_thin": false
+}
+
+=== Resume bullet ===
+Designed and simulated analog IC project components, including amplifiers and filters, using Cadence Virtuoso.
+
+=== LinkedIn post ===
+I recently characterized an NMOS by sweeping Id vs Vgs and designed a resistive-load common-source amplifier, gaining hands-on experience with Cadence Virtuoso.
+
+=== Portfolio card ===
+{
+  "headline": "Analog IC Project",
+  "description": "Designed an analog IC project using Cadence Virtuoso, involving characterization of a MOSFET, amplifier and filter design, and simulation of circuit topologies. Key actions included sweeping Id vs Vgs, designing amplifiers, and verifying filter cutoffs. The project utilized Cadence Virtuoso and the gpdk180 PDK.",
+  "tags": [
+    "Cadence Virtuoso",
+    "gpdk180 PDK"
+  ]
+}
+
+=== Proof summary ===
+This analog IC project involved designing and simulating various circuit topologies, including characterizing a MOSFET, designing amplifiers and filters. Actions taken included sweeping Id vs Vgs, designing a resistive-load common-source amplifier, and verifying filter cutoffs using AC analysis. The project was completed solo using Cadence Virtuoso and the gpdk180 PDK.
+
+=== Skill evidence ===
+[
+  {
+    "skill": "Analog IC design",
+    "evidence": "Designed a resistive-load common-source amplifier and built single-stage topologies"
+  },
+  {
+    "skill": "Circuit simulation and analysis",
+    "evidence": "Ran a PSS spectral analysis and plotted THD vs Vin"
+  },
+  {
+    "skill": "Filter design",
+    "evidence": "Designed RC low-pass, high-pass, and band-pass filters and verified the -3dB cutoff using AC analysis"
+  },
+  {
+    "skill": "Cadence Virtuoso proficiency",
+    "evidence": "Used Cadence Virtuoso for the entire design process"
+  }
+]
+
+=== Recruiter description ===
+This project demonstrates capability in analog IC design using Cadence Virtuoso, involving actions like characterizing MOSFETs, designing amplifiers and filters, and simulating circuit topologies.
+
+=== Improvement suggestion ===
+Analyze the RC filter designs using transient analysis to verify their time-domain behavior.
