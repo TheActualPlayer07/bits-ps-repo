@@ -1,140 +1,279 @@
-# BITS PS Repository
+# AI Sales Roleplay Agent
 
-## Repository Rules
+An AI-powered Business Development Representative (BDR) roleplay simulator that helps users practice professional sales conversations against realistic AI personas.
 
-* Do not push directly to the main branch.
-* All work must be associated with an assigned issue.
-* Contributors must work only on their designated branches.
-* All code submissions must be made through Pull Requests.
-* Only approved Pull Requests will be merged.
-* Contributors must address review comments before approval.
+The application allows users to choose different customer personas, conversation scenarios, and difficulty levels before engaging in a natural conversation powered by Google's Gemini AI. At the end of each session, the application generates detailed feedback highlighting strengths, weaknesses, and suggestions for improvement.
 
 ---
 
-## Contribution Process
+## Live Demo
 
-Issue Created
-→ Issue Assigned
-→ Branch Created
-→ Development
-→ Testing
-→ Commit Changes
-→ Push Branch
-→ Create Pull Request
-→ Review
-→ Approval
-→ Merge
+**Frontend**
+
+https://sales-roleplay-agent.vercel.app
+
+**Backend**
+
+https://sales-roleplay-agent.onrender.com
 
 ---
 
-## Branch Naming Convention
+## Features
 
-### Feature Branches
+- Multiple AI customer personas
+- Multiple sales scenarios
+- Three difficulty levels
+- Multi-turn conversations
+- Session management
+- AI-generated customer responses
+- Automatic conversation debrief
+- Performance scoring
+- Responsive React frontend
+- REST API backend
+- Cloud deployment
 
-```text
-feature/project-name
+---
+
+## Personas
+
+- Startup Founder
+- NGO Director
+- HR Manager
+- Procurement Manager
+- Club President
+- Potential Sponsor
+- Small Business Owner
+
+---
+
+## Scenarios
+
+- Discovery Call
+- Pitch Delivery
+- Objection Handling
+- Need Diagnosis
+- Follow-up Meeting
+
+---
+
+## Difficulty Levels
+
+### Easy
+- Friendly
+- Helpful
+- Gives detailed answers
+
+### Medium
+- Busy
+- Realistic
+- Needs convincing
+
+### Hard
+- Skeptical
+- Challenges assumptions
+- Difficult to convince
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- React
+- Vite
+- Tailwind CSS
+- Axios
+
+### Backend
+
+- Node.js
+- Express.js
+
+### AI
+
+- Google Gemini API
+
+### Deployment
+
+- Vercel
+- Render
+
+### Version Control
+
+- Git
+- GitHub
+
+---
+
+## Project Structure
+
 ```
+sales-roleplay-agent/
 
-Examples:
-
-```text
-feature/ai-roast-my-code
-feature/startup-validator
-feature/debate-bot
-feature/placement-panic-meter
-```
-
-### Bug Fix Branches
-
-```text
-bug/issue-name
-```
-
-Examples:
-
-```text
-bug/login-error
-bug/api-timeout
-```
-
-### Enhancement Branches
-
-```text
-enhancement/improvement-name
-```
-
-Examples:
-
-```text
-enhancement/ui-improvements
-enhancement/performance-update
+│
+├── client/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── server/
+│   ├── controllers/
+│   ├── routes/
+│   ├── services/
+│   ├── prompts/
+│   ├── data/
+│   └── package.json
+│
+└── README.md
 ```
 
 ---
 
-## Commit Naming Convention
+## Application Flow
 
-### Feature
-
-```text
-FEAT: Description
 ```
+User
 
-Example:
+↓
 
-```text
-FEAT: Added repository analysis module
-```
+Select Persona
 
-### Bug Fix
+↓
 
-```text
-BUG: Description
-```
+Select Scenario
 
-Example:
+↓
 
-```text
-BUG: Fixed login validation issue
-```
+Select Difficulty
 
-### Enhancement
+↓
 
-```text
-ENH: Description
-```
+Session Created
 
-Example:
+↓
 
-```text
-ENH: Improved dashboard performance
-```
+Chat with AI
 
-### Documentation
+↓
 
-```text
-DOC: Description
-```
+Conversation Stored
 
-Example:
+↓
 
-```text
-DOC: Updated repository guidelines
+End Session
+
+↓
+
+AI Debrief Generated
+
+↓
+
+Performance Report
 ```
 
 ---
 
-## Pull Request Requirements
+## Installation
 
-Every Pull Request should contain:
+Clone the repository
 
-* Related issue number
-* Summary of changes
-* Testing performed
-* Screenshots (if applicable)
+```bash
+git clone https://github.com/Adarsh-0105/sales-roleplay-agent.git
+```
 
+Open the project
+
+```bash
+cd sales-roleplay-agent
+```
+
+### Backend
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+### Frontend
+
+```bash
+cd client
+npm install
+npm run dev
+```
 
 ---
 
-## Projects
+## Environment Variables
 
+### Backend
+
+Create a `.env` file inside the **server** folder.
+
+```
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+PORT=5000
+```
+
+### Frontend
+
+Create a `.env.production` file inside **client**
+
+```
+VITE_API_URL=https://your-backend-url.onrender.com/api
+```
+
+---
+
+## Sample Conversation
+
+**You**
+
+> Hi! Thanks for taking the time today. I'd like to understand how your team currently qualifies inbound leads.
+
+**Startup Founder**
+
+> We mostly use a mix of HubSpot and manual review. What's different about your solution?
+
+**You**
+
+> We automate the first stage of lead qualification so your SDRs spend time only on high-quality leads.
+
+**Startup Founder**
+
+> Interesting. How accurate is it?
+
+---
+
+## Future Improvements
+
+- Voice conversations
+- Speech-to-text
+- Text-to-speech
+- Authentication
+- Conversation history database
+- Advanced scoring analytics
+- Industry-specific personas
+- Dashboard for instructors
+- Additional scenarios
+
+---
+
+## Author
+
+**Kumar Adarsh**
+
+BITS Pilani Goa Campus
+
+B.E. Electronics and Communication Engineering
+
+Practice School-I
+
+Caarya Innovative Solutions Pvt. Ltd.
+
+---
+
+## License
+
+This project was developed as part of the Practice School-I program at BITS Pilani.

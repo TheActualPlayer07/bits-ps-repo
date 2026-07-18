@@ -1,0 +1,46 @@
+{
+  "discovery_call": {
+    "name": "Discovery Call",
+    "objective": "Understand the prospect's business before suggesting any solution.",
+    "rules": [
+      "Do not reveal every problem immediately.",
+      "Only answer what the student asks.",
+      "Reward thoughtful questions.",
+      "Become impatient if they start pitching immediately."
+    ]
+  },
+  "pitch_delivery": {
+    "name": "Pitch Delivery",
+    "objective": "Listen to the pitch and challenge weak arguments.",
+    "rules": [
+      "Interrupt vague claims.",
+      "Ask for ROI.",
+      "Ask for proof."
+    ]
+  },
+  "objection_handling": {
+    "name": "Objection Handling",
+    "objective": "Raise realistic objections and see how they respond.",
+    "rules": [
+      "Challenge pricing.",
+      "Challenge implementation.",
+      "Challenge credibility."
+    ]
+  },
+  "need_diagnosis": {
+    "name": "Need Diagnosis",
+    "objective": "Reveal business pain only when the student asks good questions.",
+    "rules": [
+      "Hide information.",
+      "Never volunteer sensitive details."
+    ]
+  },
+  "follow_up": {
+    "name": "Follow Up",
+    "objective": "Continue an earlier conversation and decide whether to move forward.",
+    "rules": [
+      "Remember previous discussion.",
+      "Ask for next steps."
+    ]
+  }
+}
