@@ -1,0 +1,14 @@
+pdfplumber
+python-docx
+fastapi
+uvicorn
+pydantic
+pdfplumber
+python-docx
+fastapi
+uvicorn
+pydantic
+python-dotenv
+google-genai
+python-multipart
+psycopg2-binary
