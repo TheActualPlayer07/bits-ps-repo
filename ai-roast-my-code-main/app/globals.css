@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::selection {
+  background: theme("colors.ember");
+  color: theme("colors.base");
+}
+
+body {
+  background-image: radial-gradient(circle at 15% 0%, rgba(255, 107, 69, 0.06), transparent 40%),
+    radial-gradient(circle at 85% 10%, rgba(79, 209, 197, 0.06), transparent 40%);
+}
+
+.ticket-edge {
+  -webkit-mask-image: radial-gradient(circle 5px at 0px 50%, transparent 5px, black 5.5px),
+    radial-gradient(circle 5px at 100% 50%, transparent 5px, black 5.5px);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.perforation {
+  background-image: repeating-linear-gradient(
+    to right,
+    theme("colors.line") 0,
+    theme("colors.line") 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  height: 1px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise-in {
+    animation: rise-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
